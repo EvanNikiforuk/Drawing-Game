@@ -35,8 +35,8 @@ void draw() {
   rect(200,height-50,50,50);
   fill(255);
   rect(250,height-50,50,50);
-  fill(0);
-  text("?",273,height-20);
+  fill(random(0,255),random(0,255),random(0,255));
+  text("?",267,height-8);
   
   if(mousePressed&&mouseX<50&&mouseY>height-50) {
     r = 255; g = 0; b = 0;
