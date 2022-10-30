@@ -1,10 +1,16 @@
 float r = 0;
 float g = 0;
 float b = 0;
+float bR;
+float bG;
+float bB;
 int penSize = 1;
 void setup() {
+  bR = random(255);
+  bG = random(255);
+  bB = random(255);
   size(900,800);
-  background(255);
+  background(bR,bG,bB);
 }
 
 void draw() {
@@ -52,32 +58,57 @@ void draw() {
   }
   
   //pen size nuttons
-  ellipse(350,height-25,50,50);
-  ellipse(400,height-25,25,25);
-  ellipse(430,height-25,10,10);
-  ellipse(450,height-25,2,2);
   
+  
+  
+  
+  
+  fill(0);
   if (mousePressed&&mouseX>350-10&&mouseX<350+10&&mouseY>height-50) {
     penSize = 50;
+    fill(255);
   }
+  ellipse(350,height-25,50,50);
+  fill(0);
   if (mousePressed&&mouseX>400-10&&mouseX<400+10&&mouseY>height-50) {
     penSize = 25;
+    fill(255);
   }
+  ellipse(400,height-25,25,25);
+  fill(0);
   if (mousePressed&&mouseX>430-10&&mouseX<430+10&&mouseY>height-50) {
     penSize = 10;
+    fill(255);
   }
+  ellipse(430,height-25,10,10);
+  fill(0);
   if (mousePressed&&mouseX>450-10&&mouseX<450+10&&mouseY>height-50) {
     penSize = 1;
+    fill(255);
   }
+  ellipse(450,height-25,2,2);
   
   //save button
   fill(255);
   rect(500,height-50,50,50);
+  fill(0);
+  text("SAVE",510,height-20);
   
+  //erase button
+  fill(100);
+  rect(550,height-50,350,50);
+  fill(0);
+  text("ERASE",690,height-20);
 }
 
 void mousePressed () {
   if (mouseX>500&&mouseX<550&&mouseY>height-50) {
     saveFrame();
+  }
+  if (mouseX>550&&mouseX<900&&mouseY>height-50) {
+    bR = random(255);
+    bG = random(255);
+    bB = random(255);
+    background(bR,bG,bB);
   }
 }
